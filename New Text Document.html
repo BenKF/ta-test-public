@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Boomi Flow Application" />
+    <meta name="theme-color" content="#033d58" />
 
-<h1>My First Heading</h1>
+    <base href="https://us-assets.flow-prod.boomi.com/runtime/nextgen/" />
 
-<p>My first paragraph.</p>
+    <title>Flow</title>
 
-</body>
+    <link
+      rel="shortcut icon"
+      href="img/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="img/favicon/144x144.png"
+    />
+
+    <link href="assets/flow.css" rel="stylesheet" />
+
+    <style>
+      html,
+      body,
+      #flow-app {
+        height: 100%;
+        /* Use alongside height: 100% for fallback on older browsers */
+        height: 100dvh;
+        margin: 0;
+      }
+    </style>
+
+    <script>
+      window._internal_onbeforeflowstart = function (options) {
+        return {
+          ...options,
+          featureFlags: {
+            RSUT: true,
+            UNIDSH: true,
+            IOE: true,
+            AUTO: true,
+            OAPI2: true,
+            DEBUG: true,
+            DNLDBN: true,
+            AIOUTS: true,
+            RECORD: true,
+            HISTRY: true,
+            OPENAI: true,
+            DATGRD: true,
+          },
+        };
+      };
+      window.onbeforeflowstart = function (options) {
+        return {
+          ...options,
+          allowLocationControl: false,
+          tenantId: "ac8ca5a2-8dca-4f93-b303-331b95520ebc",
+          flowId: "059b9c84-c8c5-4444-a4d2-2b34bd5b5b98",
+          environmentId: "74758c04-169d-49a5-8a92-f95faacf4aa1",
+          flowVersionId: "5ee40c87-9031-4881-93ef-c1e6648e197d",
+          platformUri: "https://flow.boomi.com",
+        };
+      };
+    </script>
+
+    <script id="flow-script" src="assets/flow.js" type="module" defer></script>
+  </head>
+
+  <body>
+    <div id="flow-app"></div>
+  </body>
 </html>
